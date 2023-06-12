@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1</title>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        #B1{
+            background-color: red;
+        }
+        #B2{
+            background-color: yellow;
+        }
+        #B3{
+            background-color: Blue;
+        }
+        #B4{
+            background-color: Green;
+        }
+        #B5{
+            background-color: lightsalmon;
+        }
+        #B6{
+            background-color: olive;
+        }
+
+        .block{
+            margin: 5px;
+            height: 100px;
+            width: 100px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="block" id="B1" onClick="changeBackgroundColor('B1')"></div>
+    <div class="block" id="B2" onClick="changeBackgroundColor('B2')"></div>
+    <div class="block" id="B3" onClick="changeBackgroundColor('B3')"></div>
+    <br>
+    <div class="block" id="B4" onClick="changeBackgroundColor('B4')"></div>
+    <div class="block" id="B5" onClick="changeBackgroundColor('B5')"></div>
+    <div class="block" id="B6" onClick="changeBackgroundColor('B6')"></div>
+
+    <script>
+        function changeBackgroundColor(id){
+            var block = document.getElementById(id);
+            var color = window.getComputedStyle(block).backgroundColor;
+            
+
+            document.body.style.backgroundColor=color;
+
+            localStorage.setItem('background-color', color)
+        }
+       var storedColor = localStorage.getItem('background-color');
+       if(storedColor){
+        document.body.style.backgroundColor=storedColor;
+       }
+        
+    </script>
+    
+</body>
+</html>
